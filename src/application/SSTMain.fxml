@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SSTController">
+   <top>
+      <Pane prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="20.0" prefHeight="30.0" prefWidth="100.0" text="Choose file:" />
+            <TextField fx:id="filePathField" editable="false" layoutX="120.0" layoutY="20.0" prefHeight="30.0" prefWidth="350.0" />
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="70.0" prefHeight="30.0" prefWidth="100.0" text="Search word:" />
+            <TextField fx:id="searchWordField" layoutX="120.0" layoutY="70.0" prefHeight="30.0" prefWidth="150.0" />
+            <Button layoutX="470.0" layoutY="20.0" mnemonicParsing="false" onAction="#onReference" prefHeight="30.0" text="Reference" />
+            <Button fx:id="buttonExecute" layoutX="120.0" layoutY="120.0" mnemonicParsing="false" onAction="#onExecute" prefHeight="30.0" prefWidth="120.0" text="Execute">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="360.0" layoutY="120.0" mnemonicParsing="false" onAction="#onExit" prefHeight="30.0" prefWidth="120.0" text="Exit">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <TableView fx:id="resultTableView" layoutX="50.0" layoutY="180.0" prefHeight="350.0" prefWidth="500.0">
+              <columns>
+                <TableColumn fx:id="dateViewId" prefWidth="100.0" text="DATE" />
+                <TableColumn fx:id="numViewId" prefWidth="60.0" text="NUM" />
+                <TableColumn fx:id="exceptionViewId" prefWidth="250.0" text="EXCEPTION" />
+                <TableColumn fx:id="messageViewId" prefWidth="380.0" text="MESSAGE" />
+                <TableColumn fx:id="locationViewId" prefWidth="400.0" text="LOCATION" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </top>
+</BorderPane>
