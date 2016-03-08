@@ -5,12 +5,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-class StackTraceData(argDate: String, argException: String, argMessage: String, argLine: String) {
+class StackTraceData(date: String, exception: String, message: String, line: String) {
 	
-	var dateProperty: StringProperty = SimpleStringProperty(argDate)
-	var exceptionProperty: StringProperty? = SimpleStringProperty(argException)
-	var messageProperty: StringProperty? = SimpleStringProperty(argMessage)
-	var locationProperty: StringProperty? = SimpleStringProperty(argLine)
+	val dateProperty: StringProperty = SimpleStringProperty(date)
+	val exceptionProperty: StringProperty? = SimpleStringProperty(exception)
+	val messageProperty: StringProperty? = SimpleStringProperty(message)
+	val locationProperty: StringProperty? = SimpleStringProperty(line)
 	var count: Int = 1
 	
 	/**
