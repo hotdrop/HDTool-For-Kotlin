@@ -10,10 +10,10 @@ class Main() : Application() {
 	public override fun start(primaryStage: Stage?) {
 		var root: Parent? = FXMLLoader.load(this.javaClass.getResource("SSTMain.fxml"))
 		primaryStage!!.setTitle("SummaryStackTraceTool")
-		val scene: Scene = Scene(root, 600.toDouble(), 600.toDouble());
-		scene.getStylesheets().add(this.javaClass.getResource("application.css").toExternalForm());
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		val scene = Scene(root, 600.toDouble(), 600.toDouble())
+		scene.getStylesheets().add(this.javaClass.getResource("application.css").toExternalForm())
+		primaryStage.setScene(scene)
+		primaryStage.show()
 	}
 }
 

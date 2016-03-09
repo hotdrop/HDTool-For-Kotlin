@@ -1,34 +1,33 @@
 package jp.ojt.sst.file
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.io.BufferedReader;
+import java.io.File
+import java.util.HashMap
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+import java.io.BufferedReader
+import java.io.IOException
 
-import java.io.IOException;
-
-import jp.ojt.sst.model.StackTraceData;
-import kotlin.io.*;
-import kotlin.text.*;
+import jp.ojt.sst.model.StackTraceData
 
 class StackTraceFile(path: String, word: String) {
 	
 	val filePath = path
 	val searchWord = word
+	
 	var map = HashMap<String, StackTraceData>()
 	
 	fun read() {
+		
 		val dateRegex = Regex("(\\d{4}-\\d{2}-\\d{2})")
 		val exceptionRegex = Regex("([\\w\\.]*Exception)")
 		
-		var matchDateStr: String = ""
-		var exceptionStr: String = ""
-		var messages: String = ""
+		var matchDateStr = ""
+		var exceptionStr = ""
+		var messages = ""
 		
-		var foundDate: Boolean = false
-		var foundException: Boolean = false
-		var foundWord: Boolean = false
+		var foundDate = false
+		var foundException = false
+		var foundWord = false
 		
 		File(filePath).bufferedReader().forEachLine {
 			if(dateRegex.containsMatchIn(it)) {
@@ -53,12 +52,11 @@ class StackTraceFile(path: String, word: String) {
 				if(it.contains(searchWord)) {
 					val key = matchDateStr + exceptionStr + messages + it
 					if(map.containsKey(key)) {
-						var stData: StackTraceData = map.get(key)!!
-						stData.addCount()
+						var stData = map[key]
+						stData?.addCount()
 						map.replace(key, stData)
 					} else {
-						var stData = StackTraceData(matchDateStr, exceptionStr, messages, it)
-						map.put(key, stData)
+						map[key] = StackTraceData(matchDateStr, exceptionStr, messages, it)
 					}
 					foundWord = true
 				}

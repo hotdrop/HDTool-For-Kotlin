@@ -1,9 +1,9 @@
 package jp.ojt.sst.model
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.IntegerProperty
+import javafx.beans.property.SimpleIntegerProperty
+import javafx.beans.property.SimpleStringProperty
+import javafx.beans.property.StringProperty
 
 class StackTraceData(date: String, exception: String, message: String, line: String) {
 	
@@ -17,7 +17,7 @@ class StackTraceData(date: String, exception: String, message: String, line: Str
 	 * Add one to the count field of this class. 
 	 */
 	fun addCount() {
-		count++;
+		count++
 	}
 	
 	fun dateProperty(): StringProperty {
@@ -37,7 +37,7 @@ class StackTraceData(date: String, exception: String, message: String, line: Str
 	}
 	
 	fun numberProperty(): IntegerProperty {
-		return SimpleIntegerProperty(count);
+		return SimpleIntegerProperty(count)
 	}
 
 	/**

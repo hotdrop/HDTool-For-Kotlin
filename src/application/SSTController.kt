@@ -57,10 +57,10 @@ class SSTController() : Initializable {
 	
 	@FXML
 	fun onReference(event: ActionEvent) {
-		var fc: FileChooser = FileChooser()
+		val fc: FileChooser = FileChooser()
 		fc.setTitle("Choose StackTraceLog")
 		fc.getExtensionFilters().addAll(ExtensionFilter("Log Files", "*.log"))
-		var selectedFile: File = fc.showOpenDialog(null)
+		val selectedFile: File = fc.showOpenDialog(null)
 		filePathField?.setText(selectedFile.getAbsolutePath())
 	}
 	
