@@ -7,10 +7,10 @@ import javafx.beans.property.StringProperty;
 
 class StackTraceData(date: String, exception: String, message: String, line: String) {
 	
-	val dateProperty: StringProperty = SimpleStringProperty(date)
-	val exceptionProperty: StringProperty? = SimpleStringProperty(exception)
-	val messageProperty: StringProperty? = SimpleStringProperty(message)
-	val locationProperty: StringProperty? = SimpleStringProperty(line)
+	val dateStr: StringProperty = SimpleStringProperty(date)
+	val exceptionStr: StringProperty = SimpleStringProperty(exception)
+	val message: StringProperty = SimpleStringProperty(message)
+	val location: StringProperty = SimpleStringProperty(line)
 	var count: Int = 1
 	
 	/**
@@ -18,6 +18,22 @@ class StackTraceData(date: String, exception: String, message: String, line: Str
 	 */
 	fun addCount() {
 		count++;
+	}
+	
+	fun dateProperty(): StringProperty {
+		return dateStr
+	}
+	
+	fun exceptionProperty(): StringProperty {
+		return exceptionStr
+	}
+	
+	fun messageProperty(): StringProperty {
+		return message
+	}
+	
+	fun locationProperty(): StringProperty {
+		return location
 	}
 	
 	fun numberProperty(): IntegerProperty {
@@ -30,10 +46,10 @@ class StackTraceData(date: String, exception: String, message: String, line: Str
 	 * @return a csv string representation of this stackTraceData
 	 */
 	fun toCSVString(): String {
-		return arrayOf(dateProperty.toString(), 
-						exceptionProperty.toString(), 
-						messageProperty.toString(), 
-						locationProperty.toString(), 
+		return arrayOf(dateStr.toString(), 
+						exceptionStr.toString(), 
+						message.toString(), 
+						location.toString(), 
 						count.toString()).joinToString(",")
 	}
 }

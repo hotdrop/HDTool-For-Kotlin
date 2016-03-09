@@ -52,7 +52,7 @@ class SSTController() : Initializable {
 		locationViewId?.setProperty("location")
 		
 		val bb: BooleanBinding = filePathField!!.textProperty().isEmpty().or(searchWordField!!.textProperty().isEmpty()) 
-		buttonExecute!!.disableProperty().bind(bb);
+		buttonExecute!!.disableProperty().bind(bb)
 	}
 	
 	@FXML
@@ -60,24 +60,24 @@ class SSTController() : Initializable {
 		var fc: FileChooser = FileChooser()
 		fc.setTitle("Choose StackTraceLog")
 		fc.getExtensionFilters().addAll(ExtensionFilter("Log Files", "*.log"))
-		var selectedFile: File = fc.showOpenDialog(null);
-		filePathField?.setText(selectedFile.getAbsolutePath());
+		var selectedFile: File = fc.showOpenDialog(null)
+		filePathField?.setText(selectedFile.getAbsolutePath())
 	}
 	
 	@FXML
 	fun onExecute(event: ActionEvent) {
 		var stFile = StackTraceFile(filePathField!!.getText(), searchWordField!!.getText())
-		stFile.read();
-		var resultMap: HashMap<String, StackTraceData> = stFile.map;
-		resultTableView?.getItems()?.clear();
-		for(stData:StackTraceData in resultMap.values) {
-			resultTableView?.getItems()?.add(stData);
+		stFile.read()
+		var resultMap: HashMap<String, StackTraceData> = stFile.map
+		resultTableView?.getItems()?.clear()
+		for(stData in resultMap.values) {
+			resultTableView?.getItems()?.add(stData)
 		}
 	}
 	
 	@FXML
 	fun onExit(event: ActionEvent) {
-		((event.getSource() as Button).getScene().getWindow() as Stage).close();
+		((event.getSource() as Button).getScene().getWindow() as Stage).close()
 	}
 	
 	fun<T, S> TableColumn<S, T>.setProperty(property: String) {
