@@ -27,6 +27,7 @@ public class StackTraceFileTest {
 		
 		StackTraceFile stl = new StackTraceFile(path, searchWord);
 		stl.read();
+		/*
 		HashMap<String, StackTraceData> map = stl.getResultMap();
 		for(StackTraceData std : map.values()) {
 			System.out.println(std.toCSVString());
@@ -36,7 +37,7 @@ public class StackTraceFileTest {
 			Files.delete(Paths.get(path));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	/**

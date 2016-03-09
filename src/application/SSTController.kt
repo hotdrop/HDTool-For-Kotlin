@@ -3,6 +3,7 @@ package application
 import java.net.URL
 import java.util.ResourceBundle
 import java.io.File
+import java.util.HashMap
 
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
@@ -18,8 +19,8 @@ import javafx.stage.FileChooser
 import javafx.stage.Stage
 import javafx.stage.FileChooser.ExtensionFilter
 
+import jp.ojt.sst.file.StackTraceFile
 import jp.ojt.sst.model.StackTraceData
-
 
 class SSTController() : Initializable {
 	
@@ -65,14 +66,13 @@ class SSTController() : Initializable {
 	
 	@FXML
 	fun onExecute(event: ActionEvent) {
-		//TODO
-		//StackTraceFile stFile = new StackTraceFile(filePathField.getText(), searchWordField.getText());
-		//stFile.read();
-		//HashMap<String, StackTraceData> resultMap = stFile.getResultMap();
-		//resultTableView.getItems().clear();
-		//for(StackTraceData stData : resultMap.values()) {
-		//	resultTableView.getItems().add(stData);
-		//}
+		var stFile = StackTraceFile(filePathField!!.getText(), searchWordField!!.getText())
+		stFile.read();
+		var resultMap: HashMap<String, StackTraceData> = stFile.map;
+		resultTableView?.getItems()?.clear();
+		for(stData:StackTraceData in resultMap.values) {
+			resultTableView?.getItems()?.add(stData);
+		}
 	}
 	
 	@FXML
